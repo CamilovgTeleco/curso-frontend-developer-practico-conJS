@@ -4,12 +4,21 @@ const desktopMenu=document.querySelector('.desktop-menu')
 const menuHamIcom = document.querySelector('.menu')
 const menuMobile= document.querySelector('.mobile-menu')
 
+const btnShoppingCart = document.querySelector('.navbar-shopping-cart')
+const productDetailShopCar = document.querySelector('.product-detail')
+
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcom.addEventListener('click', toggleBtnHamburguesa)
+btnShoppingCart.addEventListener('click', toggleBtnShopCar)
 
 function toggleDesktopMenu(){
+    const isProductDetailShopCarClosed=productDetailShopCar.classList.contains('inactive')
     //Método corto para mostrar/ocultar desktop-menu
     desktopMenu.classList.toggle('inactive')
+
+    if(!isProductDetailShopCarClosed){
+        productDetailShopCar.classList.add('inactive')
+    }
 
     //Método largo para mostrar/ocultar desktop-menu
     // let muestra= desktopMenu.getAttribute('class')
@@ -37,8 +46,28 @@ function toggleDesktopMenu(){
 }
 
 function toggleBtnHamburguesa(){
+    const isProductDetaolShopCarClosed=productDetailShopCar.classList.contains('inactive')
     menuMobile.classList.toggle('inactive')
+    if(!isProductDetaolShopCarClosed){
+        productDetailShopCar.classList.add('inactive')
+    }
+
 }
+
+function toggleBtnShopCar(){
+    const isMenuMobileClose=menuMobile.classList.contains('inactive')
+    const isDesktopMenuClosed=desktopMenu.classList.contains('inactive')
+    productDetailShopCar.classList.toggle('inactive')
+    if(!isMenuMobileClose){
+        menuMobile.classList.add('inactive')
+    }
+
+    if(!isDesktopMenuClosed){
+       desktopMenu.classList.add('inactive')
+    }
+}
+
+
 
 
 
