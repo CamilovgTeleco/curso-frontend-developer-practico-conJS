@@ -1,13 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email')
 const desktopMenu=document.querySelector('.desktop-menu')
 
+const menuHamIcom = document.querySelector('.menu')
+const menuMobile= document.querySelector('.mobile-menu')
+
 menuEmail.addEventListener('click', toggleDesktopMenu)
+menuHamIcom.addEventListener('click', toggleBtnHamburguesa)
 
 function toggleDesktopMenu(){
-    //Método corto
+    //Método corto para mostrar/ocultar desktop-menu
     desktopMenu.classList.toggle('inactive')
 
-    //Método largo
+    //Método largo para mostrar/ocultar desktop-menu
     // let muestra= desktopMenu.getAttribute('class')
     // let arreglo=[];
     // let palabra=""
@@ -30,6 +34,10 @@ function toggleDesktopMenu(){
     //     desktopMenu.classList.add('inactive')
     //     console.log("pongo")
     // }
+}
+
+function toggleBtnHamburguesa(){
+    menuMobile.classList.toggle('inactive')
 }
 
 
