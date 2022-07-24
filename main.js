@@ -1,17 +1,20 @@
 const menuEmail = document.querySelector('.navbar-email')
 const desktopMenu=document.querySelector('.desktop-menu')
 
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
 const menuHamIcom = document.querySelector('.menu')
 const menuMobile= document.querySelector('.mobile-menu')
 
 const btnShoppingCart = document.querySelector('.navbar-shopping-cart')
 const productDetailShopCart = document.querySelector('#shoppingCartContainer')
-
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcom.addEventListener('click', toggleBtnHamburguesa)
 btnShoppingCart.addEventListener('click', toggleBtnShopCar)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu(){
     const isProductDetailShopCarClosed=productDetailShopCart.classList.contains('inactive')
@@ -47,6 +50,7 @@ function toggleDesktopMenu(){
     // }
 }
 
+/*MOBILE MENU*/ 
 function toggleBtnHamburguesa(){
     /*productDetailShopCart*/
     const isProductDetaolShopCarClosed=productDetailShopCart.classList.contains('inactive')
@@ -54,12 +58,15 @@ function toggleBtnHamburguesa(){
     if(!isProductDetaolShopCarClosed){
         productDetailShopCart.classList.add('inactive')
     }
-
+    closeProductDetailAside()
 }
 
 function toggleBtnShopCar(){
     const isMenuMobileClose=menuMobile.classList.contains('inactive')
     const isDesktopMenuClosed=desktopMenu.classList.contains('inactive')
+
+    const isProductDetail=productDetailContainer.classList.contains('inactive')
+
     productDetailShopCart.classList.toggle('inactive')
     if(!isMenuMobileClose){
         menuMobile.classList.add('inactive')
@@ -68,6 +75,13 @@ function toggleBtnShopCar(){
     if(!isDesktopMenuClosed){
        desktopMenu.classList.add('inactive')
     }
+
+    if(!isProductDetail){
+        productDetailContainer.classList.add('inactive')
+     }
+
+
+
 }
 
 /*Integración código clase6.html*/ 
@@ -98,6 +112,7 @@ for (product of productList){
 
     const img = document.createElement('img')
     img.setAttribute('src',product.image)
+    img.addEventListener('click', openProductDetailAside)
 
     const productInf= document.createElement('div')
     productInf.classList.add('product-info')
@@ -127,6 +142,20 @@ for (product of productList){
     productInf.append(productInfoFigure)
 
     cardsContainer.append(productCard)
+}
+
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive')
+    const isProductDetailShopCart=productDetailShopCart.classList.contains('inactive')
+
+    if (!isProductDetailShopCart){
+        productDetailShopCart.classList.add('inactive')
+    }
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 
