@@ -5,7 +5,7 @@ const menuHamIcom = document.querySelector('.menu')
 const menuMobile= document.querySelector('.mobile-menu')
 
 const btnShoppingCart = document.querySelector('.navbar-shopping-cart')
-const productDetailShopCar = document.querySelector('.product-detail')
+const productDetailShopCart = document.querySelector('#shoppingCartContainer')
 
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -14,12 +14,12 @@ menuHamIcom.addEventListener('click', toggleBtnHamburguesa)
 btnShoppingCart.addEventListener('click', toggleBtnShopCar)
 
 function toggleDesktopMenu(){
-    const isProductDetailShopCarClosed=productDetailShopCar.classList.contains('inactive')
+    const isProductDetailShopCarClosed=productDetailShopCart.classList.contains('inactive')
     //Método corto para mostrar/ocultar desktop-menu
     desktopMenu.classList.toggle('inactive')
 
     if(!isProductDetailShopCarClosed){
-        productDetailShopCar.classList.add('inactive')
+        productDetailShopCart.classList.add('inactive')
     }
 
     //Método largo para mostrar/ocultar desktop-menu
@@ -48,10 +48,11 @@ function toggleDesktopMenu(){
 }
 
 function toggleBtnHamburguesa(){
-    const isProductDetaolShopCarClosed=productDetailShopCar.classList.contains('inactive')
+    /*productDetailShopCart*/
+    const isProductDetaolShopCarClosed=productDetailShopCart.classList.contains('inactive')
     menuMobile.classList.toggle('inactive')
     if(!isProductDetaolShopCarClosed){
-        productDetailShopCar.classList.add('inactive')
+        productDetailShopCart.classList.add('inactive')
     }
 
 }
@@ -59,7 +60,7 @@ function toggleBtnHamburguesa(){
 function toggleBtnShopCar(){
     const isMenuMobileClose=menuMobile.classList.contains('inactive')
     const isDesktopMenuClosed=desktopMenu.classList.contains('inactive')
-    productDetailShopCar.classList.toggle('inactive')
+    productDetailShopCart.classList.toggle('inactive')
     if(!isMenuMobileClose){
         menuMobile.classList.add('inactive')
     }
